@@ -2,24 +2,24 @@
 
 This is a text-based book inventory management system built with Python. 
 
-The project includes several 
+The project includes several initial functionalities with minimal error handeling and protection. Included in this current iteration is: adding books, removing books, searching by isbn, title, or author, and listing all currently available books.
 
 # How to Run
 
 1. Clone the repository.
-'''
-git clone 
-'''
+```
+git clone https://github.com/jaredonnelly/book-inventory-manager.git
+```
 
-2. Install dependencies
-'''
+3. Install dependencies
+```
 pip install -r requirements.txt
-'''
+```
 
-3. Run the application
-'''
+4. Run the application
+```
 python main.py
-'''
+```
 
 # TODO
 - list function, options to see all books versus the first X amount.
@@ -28,4 +28,5 @@ python main.py
 - add books function, if book is already in database - ask if user would like to increasse stock 
 - database, add additional safety measures to protect against sql injections.
 - remove function, include isbn check. 
-- remove funciton, 
+- remove funciton, add confirmation that the correct book was found.
+- search function, allow search to be more broad using regex.
