@@ -11,18 +11,18 @@ The project includes several initial functionalities with minimal error handelin
 git clone https://github.com/jaredonnelly/book-inventory-manager.git
 ```
 
-3. Install dependencies
+3. Install dependencies (open the correct directory).
 ```
 pip install -r requirements.txt
 ```
 
-4. Run the application
+4. Run the application.
 ```
 python main.py
 ```
 
 # TODO
-- list function, options to see all books versus the first X amount.
+- list function, option to reverse display order.
 - add books function, standardize ISBN input so it has no hyphens.
 - add books function, option to fill in missing information using isbnlib.
 - add books function, if book is already in database - ask if user would like to increasse stock 

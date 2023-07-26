@@ -7,11 +7,18 @@ import logging as log
 class IsbnValueError(Exception):
     pass
 
-def list_books(dbconn):
+def list_books(dbconn, sortby, count):
     """Lists all books in the database."""
-    pd.set_option('display.max_rows', None)
     df = pd.read_sql_query("SELECT * FROM books;", dbconn)
-    print("List of books in inventory\n", df)
+    if sortby != 'w':
+        df = df.sort_values(by=sortby)
+    
+    if type(count) == str:
+        pd.set_option('display.max_rows', None)
+        print("List of books in inventory\n", df)
+    else:
+        pd.set_option('display.max_rows', count)
+        print("List of books in inventory\n", df.head(count))
     
 
 def addBook_to_database(dbcon, isbn, title, author, publisher, year, stock=0, tablename="books", isbn_checksum=False):
