@@ -1,3 +1,4 @@
+from menu import option_validation, correct_characters
 import logging as log
 import sqlite3
 import databaseManager
@@ -9,6 +10,7 @@ log.basicConfig(format='%(levelname)s:%(message)s', level=log.DEBUG)
 
 def main():
     running = True
+    ref = correct_characters()
     conn, cur = databaseManager.setup('bookManager.db', 'MOCK_DATA.csv')
 
     print("Welcome to your book inventory manager!\n")
@@ -17,7 +19,7 @@ def main():
     while running:
         
         option = menu.display()
-        option = menu.request_validation(option)
+        option = option_validation(option, [ref.main, ref.main_menu])
 
         match option:
             case "a":
@@ -27,7 +29,8 @@ def main():
             case "s":
                 search.menu(conn, cur)
             case "l":
-                inventory.list_books(conn)
+                sortby, count = menu.display_list()
+                inventory.list_books(conn, sortby, count)
             case "q":
                 running = False
                 break
